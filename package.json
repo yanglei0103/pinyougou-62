@@ -1,0 +1,24 @@
+{
+  "name": "hm62_pyg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start": "cross-env NODE_ENV=production node app.js"
+  },
+  "author": "zhousg",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "express-favicon": "^2.0.1",
+    "http-errors": "^1.7.1",
+    "morgan": "^1.9.1",
+    "youch": "^2.0.10"
+  }
+}

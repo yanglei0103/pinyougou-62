@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>出错了</title>
+    <style>
+        .err{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .err404{
+            background: url("/assets/img/404.png") no-repeat center / cover;
+        }
+        .err500{
+            background: url("/assets/img/500.png") no-repeat center / cover;
+        }
+    </style>
+</head>
+<body>
+<div class="err {{status===404?'err404':'err500'}}"></div>
+</body>
+</html>
