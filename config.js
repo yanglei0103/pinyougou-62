@@ -5,7 +5,7 @@ exports.site = {
   title: '品优购(PYG.COM)-正品低价、品质保障、配送及时、轻松购物！'
 }
 exports.api = {
-  //baseURL:'https://ns-api.uieee.com/v1/'
+  //baseURL:'https://ns-api.uieee.com/v1/',
   baseURL:'http://localhost:8000/v1/',
   timeout:3000,
   username:'newshop-frontend',
