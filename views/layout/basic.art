@@ -12,9 +12,9 @@
 </head>
 <body>
 {{block 'body'}}{{/block}}
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/sui.transition.js"></script>
-<script src="assets/js/common.js"></script>
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/sui.transition.js"></script>
+<script src="/assets/js/common.js"></script>
 {{block 'script'}}{{/block}}
 </body>
 </html>
