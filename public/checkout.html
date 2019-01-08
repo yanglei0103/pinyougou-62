@@ -20,7 +20,9 @@
               <li class="f-item">品优购欢迎您！</li>
               <li class="f-item">请
                 <a href="login.html">登录</a>
-                <a href="register.html">免费注册</a>
+                <span>
+                  <a href="register.html">免费注册</a>
+                </span>
               </li>
             </ul>
             <ul class="fr">
@@ -284,23 +286,32 @@
         <div class="step-tit">
           <h5>送货清单</h5>
         </div>
-        <div class="sendGoods">
-          <span>商品清单：</span>
-          <ul class="yui3-g">
-            <li class="yui3-u-1-6">
-              <img src="uploads/mobile.png">
+        <div class="step-cont">
+          <ul class="send-detail">
+            <li>
+              <div class="sendGoods">
+                <span>商品清单：</span>
+                <ul class="yui3-g">
+                  <li class="yui3-u-1-6">
+                    <img src="uploads/mobile.png">
+                  </li>
+                  <li class="yui3-u-2-3">
+                    <div class="desc">Apple iPhone 6s (A1700) 64G 玫瑰金色 移动联通电信4G手机硅胶透明防摔软壳 本色系列</div>
+                  </li>
+                  <li class="yui3-u-1-12">
+                    <div class="price">￥5399.00</div>
+                  </li>
+                  <li class="yui3-u-1-12">
+                    <div class="num">x<strong>1</strong></div>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li class="yui3-u-2-3">
-              <div class="desc">Apple iPhone 6s (A1700) 64G 玫瑰金色 移动联通电信4G手机硅胶透明防摔软壳 本色系列</div>
-            </li>
-            <li class="yui3-u-1-12">
-              <div class="price">￥5399.00</div>
-            </li>
-            <li class="yui3-u-1-12">
-              <div class="num">x<strong>1</strong></div>
-            </li>
+            <li></li>
+            <li></li>
           </ul>
         </div>
+        <div class="hr"></div>
       </div>
       <div class="linkInfo">
         <div class="step-tit">
@@ -416,7 +427,7 @@
             </div>
             <div class="yui3-u-1-6">
               <h4>帮助中心</h4>
-              <img src="uploads/qrcode.jpg">
+              <img src="assets/img/wx_cz.jpg">
             </div>
           </div>
         </div>
@@ -461,22 +472,7 @@
                   </div>
                 </div>
                 <!-- 列表 -->
-                <div class="tbar-cart-list">
-                  <div class="tbar-cart-item">
-                    <div class="jtc-item-promo">
-                      <em class="promo-tag promo-mz">满赠<i class="arrow"></i></em>
-                      <div class="promo-text">已购满600元，您可领赠品</div>
-                    </div>
-                    <div class="jtc-item-goods">
-                      <span class="p-img"><a href="#"><img src="{2}" alt="{1}" height="50" width="50"></a></span>
-                      <div class="p-name">
-                        <a href="#">{1}</a>
-                      </div>
-                      <div class="p-price"><strong>¥{3}</strong>×{4} </div>
-                      <a class="p-del" href="#">删除</a>
-                    </div>
-                  </div>
-                </div>
+                <div class="tbar-cart-list"></div>
               </div>
             </div>
             <!-- 小计 -->
@@ -543,6 +539,23 @@
     </div>
   </div>
 
+  <!--购物车单元格 模板-->
+  <script type="text/template" id="tbar-cart-item-template">
+    <div class="tbar-cart-item">
+      <div class="jtc-item-promo">
+        <em class="promo-tag promo-mz">满赠<i class="arrow"></i></em>
+        <div class="promo-text">已购满600元，您可领赠品</div>
+      </div>
+      <div class="jtc-item-goods">
+        <span class="p-img"><a href="#"><img src="{2}" alt="{1}" height="50" width="50"></a></span>
+        <div class="p-name">
+          <a href="#">{1}</a>
+        </div>
+        <div class="p-price"><strong>¥{3}</strong>×{4} </div>
+        <a class="p-del" href="#">删除</a>
+      </div>
+    </div>
+  </script>
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/sui.modal.js"></script>
   <script src="assets/js/sui.transition.js"></script>

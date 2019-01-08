@@ -20,7 +20,9 @@
               <li class="f-item">品优购欢迎您！</li>
               <li class="f-item">请
                 <a href="login.html">登录</a>
-                <a href="register.html">免费注册</a>
+                <span>
+                  <a href="register.html">免费注册</a>
+                </span>
               </li>
             </ul>
             <ul class="fr">
@@ -202,19 +204,17 @@
       <h4>全部商品<span>11</span></h4>
       <div class="cart-main">
         <div class="yui3-g cart-th">
-          <div class="yui3-u-1-24"><input type="checkbox"></div>
-          <div class="yui3-u-12-24">商品</div>
-          <div class="yui3-u-3-24">单价（元）</div>
-          <div class="yui3-u-3-24">数量</div>
-          <div class="yui3-u-4-24">小计（元）</div>
-          <div class="yui3-u-1-24">操作</div>
+          <div class="yui3-u-1-2">商品</div>
+          <div class="yui3-u-1-8">单价（元）</div>
+          <div class="yui3-u-1-8">数量</div>
+          <div class="yui3-u-1-8">小计（元）</div>
+          <div class="yui3-u-1-8">操作</div>
         </div>
         <div class="cart-item-list">
           <div class="cart-body">
             <div class="cart-list">
               <ul class="goods-list yui3-g">
-              <li class="yui3-u-1-24"><input type="checkbox"></li>
-              <li class="yui3-u-12-24">
+                <li class="yui3-u-3-8">
                   <div class="good-item">
                     <div class="item-img">
                       <img src="uploads/mobile.png">
@@ -222,24 +222,24 @@
                     <div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存</div>
                   </div>
                 </li>
-                <li class="yui3-u-3-24">
+                <li class="yui3-u-1-8">
                   <span>颜色: 银色</span><br>
                   <span>处理器: Core I5</span><br>
                   <span>内存: 8GB</span><br>
                   <span>尺寸: 13.3英寸</span><br>
                 </li>
-                <li class="yui3-u-3-24">
+                <li class="yui3-u-1-8">
                   <span class="price">8848.00</span>
                 </li>
-                <li class="yui3-u-3-24">
+                <li class="yui3-u-1-8">
                   <a href="#" class="increment mins">-</a>
                   <input autocomplete="off" type="text" value="1" minnum="1" class="itxt">
                   <a href="#" class="increment plus">+</a>
                 </li>
-                <li class="yui3-u-4-24">
+                <li class="yui3-u-1-8">
                   <span class="sum">8848.00</span>
                 </li>
-                <li class="yui3-u-1-24">
+                <li class="yui3-u-1-8">
                   <a href="#none">删除</a>
                 </li>
               </ul>
@@ -254,7 +254,7 @@
             <span><em>总价（不含运费）：</em><i class="summoney">¥16283.00</i></span>
           </div>
           <div class="sumbtn">
-            <a class="sum-btn" href="order.html">结算</a>
+            <a class="sum-btn" href="checkout.html">结算</a>
           </div>
         </div>
       </div>
@@ -358,7 +358,7 @@
             </div>
             <div class="yui3-u-1-6">
               <h4>帮助中心</h4>
-              <img src="uploads/qrcode.jpg">
+              <img src="assets/img/wx_cz.jpg">
             </div>
           </div>
         </div>
@@ -403,22 +403,7 @@
                   </div>
                 </div>
                 <!-- 列表 -->
-                <div class="tbar-cart-list">
-                  <div class="tbar-cart-item">
-                    <div class="jtc-item-promo">
-                      <em class="promo-tag promo-mz">满赠<i class="arrow"></i></em>
-                      <div class="promo-text">已购满600元，您可领赠品</div>
-                    </div>
-                    <div class="jtc-item-goods">
-                      <span class="p-img"><a href="#"><img src="{2}" alt="{1}" height="50" width="50"></a></span>
-                      <div class="p-name">
-                        <a href="#">{1}</a>
-                      </div>
-                      <div class="p-price"><strong>¥{3}</strong>×{4} </div>
-                      <a class="p-del" href="#">删除</a>
-                    </div>
-                  </div>
-                </div>
+                <div class="tbar-cart-list"></div>
               </div>
             </div>
             <!-- 小计 -->
@@ -485,6 +470,23 @@
     </div>
   </div>
 
+  <!--购物车单元格 模板-->
+  <script type="text/template" id="tbar-cart-item-template">
+    <div class="tbar-cart-item">
+      <div class="jtc-item-promo">
+        <em class="promo-tag promo-mz">满赠<i class="arrow"></i></em>
+        <div class="promo-text">已购满600元，您可领赠品</div>
+      </div>
+      <div class="jtc-item-goods">
+        <span class="p-img"><a href="#"><img src="{2}" alt="{1}" height="50" width="50"></a></span>
+        <div class="p-name">
+          <a href="#">{1}</a>
+        </div>
+        <div class="p-price"><strong>¥{3}</strong>×{4} </div>
+        <a class="p-del" href="#">删除</a>
+      </div>
+    </div>
+  </script>
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/common.js"></script>
 </body>
