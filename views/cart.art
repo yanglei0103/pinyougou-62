@@ -1,0 +1,91 @@
+{{extend './layout/frame.art'}}
+{{block 'style'}}
+<link rel="stylesheet" href="/assets/css/page-cart.css">
+{{/block}}
+{{block 'script'}}
+<!--ajax 请求 接口  返回 json  根据json渲染页面  注意：前后端使用的都是 art-template 模版-->
+<script type="text/template" id="cartTpl">
+    <br>
+    <div class="sui-msg msg-large msg-block msg-warning">
+        <div class="msg-con">您还没有登录！登录后购物车的商品将保存到您账号中
+            <a href="javascript:void(0);" class="sui-btn btn-xmiddle btn-danger">立即登录</a>
+        </div>
+        <span class="msg-icon"></span>
+    </div>
+    <div class="cart-main">
+        <div class="yui3-g cart-th">
+            <div class="yui3-u-1-24"><input type="checkbox"></div>
+            <div class="yui3-u-12-24">商品</div>
+            <div class="yui3-u-3-24">单价（元）</div>
+            <div class="yui3-u-3-24">数量</div>
+            <div class="yui3-u-4-24">小计（元）</div>
+            <div class="yui3-u-1-24">操作</div>
+        </div>
+        <div class="cart-item-list">
+            <div class="cart-body">
+                <div class="cart-list">
+                    <? var count = 0 , totalPrice = 0 ?>
+                    <? for(var i=0;i<list.length;i++){ ?>
+                    <? var item = list[i] ?>
+                    <? count += item.amount ?>
+                    <? totalPrice += item.amount * item.price ?>
+                    <ul class="goods-list yui3-g">
+                        <li class="yui3-u-1-24"><input type="checkbox"></li>
+                        <li class="yui3-u-12-24">
+                            <div class="good-item">
+                                <div class="item-img">
+                                    <img src="<?=item.thumbnail?>">
+                                </div>
+                                <div class="item-msg"><?=item.name?></div>
+                            </div>
+                        </li>
+                        <li class="yui3-u-3-24">
+                            <span class="price"><?=item.price?></span>
+                        </li>
+                        <li class="yui3-u-3-24">
+                            <a href="javascript:;" class="increment mins">-</a>
+                            <input autocomplete="off" type="text" value="<?=item.amount?>" minnum="1" class="itxt">
+                            <a href="javascript:;" class="increment plus">+</a>
+                        </li>
+                        <li class="yui3-u-4-24">
+                            <span class="sum"><?=(item.amount*item.price).toFixed(2)?></span>
+                        </li>
+                        <li class="yui3-u-1-24">
+                            <a href="javascript:;">删除</a>
+                        </li>
+                    </ul>
+                    <? } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-tool">
+        <div class="money-box">
+            <div class="sumprice">
+                <span>共 <strong><?=count?></strong> 件商品</span><br>
+                <span><em>总价（不含运费）：</em><i class="summoney">¥<?=totalPrice.toFixed(2)?></i></span>
+            </div>
+            <div class="sumbtn">
+                <a class="sum-btn" href="order.html">生成订单</a>
+            </div>
+        </div>
+    </div>
+</script>
+<script src="/assets/js/template-web.js"></script>
+<script>
+  //修改解析规则  <?=取值  ?>  <? js语法即可 ?>
+  template.defaults.rules[0].test = /<\?(#?)((?:==|=#|[=-])?)[ \t]*([\w\W]*?)[ \t]*(-?)\?>/
+  //获取购物车列表数据
+  $.get('/cart/find', (data) => {
+    //1. 准备数据  2. 准模版  3. 调用template 返回了HTML格式的字符串
+    $('.allgoods').html(template('cartTpl', {list: data}))
+  })
+</script>
+{{/block}}
+{{block 'content'}}
+<div class="py-container">
+    <div class="allgoods">
+        <!--TODO 动态渲染的地方-->
+    </div>
+</div>
+{{/block}}

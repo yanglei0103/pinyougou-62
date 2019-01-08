@@ -7,6 +7,17 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const favicon = require('express-favicon')
 const logger = require('morgan')
+const cookieParser = require('cookie-parser')
+/*1. 使用session持久化  第一步 导包*/
+const session = require('express-session')
+const mysqlSession = require('express-mysql-session')
+/*2. 使用session持久化  第二步 得到构造函数  session存储的*/
+const MySQLStore = mysqlSession(session)
+/*3. 初始化 session存储 对象  会在newshop生成一个sessions表*/
+const config = require('./config')
+const sessionStore = new MySQLStore(config.mysql)
+
+
 
 const router = require('./router')
 const middleware = require('./middleware')
@@ -34,6 +45,18 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false})) //设置对象格式的请求体内容
 //网站小图标中间件 响应图标 express-favicon
 app.use(favicon(path.join(__dirname, 'favicon.ico')))
+//添加session中间件
+//1. session中间件包  express-session
+//2. session持久化包  express-mysql-session
+
+app.use(session({
+  key: 'PYGSID',
+  secret: 'pyg_secret',
+  store: sessionStore,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(cookieParser())
 
 //自定义中间件
 app.use(middleware.global)

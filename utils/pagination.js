@@ -3,7 +3,7 @@ const path = require('path')
 const url = require('url')
 /**
  * 生成分页的HTML
- * @param options {page:'',total:'',btnNum:''}
+ * @param options {page:'',total:'',btnNum:'',req:''}
  */
 module.exports = (options) => {
   //思考：生成分页的时候需要哪些参数
